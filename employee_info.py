@@ -21,19 +21,20 @@ def get_employees_by_age_range(age_lower_limit, age_upper_limit):
 def calculate_average_salary():
     total = 0
     average = 0
+    for everyitem in employee_data: #iterate through every item in employee data
+        employeesalary = everyitem["salary"] # for every item named salary, store it in employeesalary
+        total += employeesalary #for every employee salary value, store it in total
 
-    #add your implementation to calculate here
-
-
-    return average
+    average = total/len(employee_data) #average is the total divided by the count of the total no. of rows
+    average=round(average,2)
+    return average #return this value so it can be used elsewhere
 
 def get_employees_by_dept(department):
-    result = []
-
-    # Add your implementation from here
-
-
-    return result
+    result = [] #initialise an empty array to store the selected deptments
+    for everyitem in employee_data: #for every item in employee data,
+        if everyitem["department"] == department: #check if the department matches
+            result.append(everyitem) #if match, add the result from everyitem to result
+    return result #return and display 
 
 def display_all_records():
     print(("Name" + "\t" +"Age" +"\t" +"Department" +"\t" +"Salary" ).expandtabs(15))
